@@ -1,0 +1,20 @@
+{
+  "formId": "gym-signup-2025",
+  "summary": {
+    "totalSubmissions": 4000,
+    "averageFitnessLevel": 5.53,
+    "newsletterSubscriptions": 1231,
+    "goldMemberships": 988
+  },
+  "distributions": {
+    "membershipPackage": { "Basic": 1200, "Bronze": 800, "Silver": 1012, "Gold": 988 },
+    "province": { "BC": 800, "ON": 1200, "QC": 900, "AB": 600, "MB": 250, "NS": 250 },
+    "gender": { "Male": 2100, "Female": 1800, "Rather not say": 100 },
+    "fitnessLevelHistogram": { "1-3": 1000, "4-6": 1800, "7-10": 1200 }
+  },
+  "predictions": {
+    "signupsNextMonth": { "count": 4480, "increasePercent": 12 },
+    "goldUpgradesNextMonth": { "count": 1087, "increasePercent": 10 },
+    "newsletterSubscribersNextMonth": { "count": 1416, "increasePercent": 15 }
+  }
+}

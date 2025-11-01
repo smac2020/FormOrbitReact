@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GoldRush Gym Signup — Eclipse Shadow Style</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <style>
+    /* Eclipse Shadow Palette */
+    :root {
+      --bg-dark: #0a0a10;
+      --accent-purple: #6c4b9e;
+      --glow-purple: #8f70c9;
+      --text-primary: #cfcde6;
+      --input-bg: #121018;
+      --input-border: #372e53;
+      --input-focus-glow: #7a64b9;
+      --button-bg: #6c4b9e;
+      --button-hover-bg: #8f70c9;
+      --shadow-glow: rgba(111, 92, 149, 0.5);
+      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: var(--bg-dark);
+      font-family: var(--font-family);
+      color: var(--text-primary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 3rem 1rem;
+      user-select: none;
+    }
+
+    main.container {
+      max-width: 600px;
+      background: var(--input-bg);
+      border-radius: 0.75rem;
+      padding: 3rem 2.5rem;
+      box-shadow:
+        0 0 10px var(--shadow-glow),
+        inset 0 0 12px #241f3a;
+      border: 1.5px solid var(--input-border);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      user-select: none;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 2.6rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.2rem;
+      color: var(--accent-purple);
+      text-shadow:
+        0 0 8px var(--glow-purple);
+      text-transform: uppercase;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    header p {
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: var(--glow-purple);
+      font-style: italic;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-shadow: 0 0 6px var(--glow-purple);
+      user-select: none;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text-primary);
+      letter-spacing: 0.04em;
+      font-size: 1rem;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+
+    label i {
+      color: var(--accent-purple);
+      margin-right: 0.5rem;
+      vertical-align: middle;
+      text-shadow: 0 0 6px var(--glow-purple);
+    }
+
+    .form-control,
+    .form-select,
+    textarea.form-control,
+    input[type="range"] {
+      background-color: #1a182b;
+      border: 1.5px solid var(--input-border);
+      border-radius: 0.5rem;
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.65rem 1.2rem;
+      box-shadow:
+        inset 0 0 10px #281f44;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease;
+      user-select: text;
+    }
+
+    .form-control::placeholder {
+      color: #746b9fcc;
+      font-style: italic;
+      font-weight: 500;
+      text-transform: none;
+      letter-spacing: 0.02em;
+    }
+
+    .form-control:focus,
+    .form-select:focus,
+    textarea.form-control:focus,
+    input[type="range"]:focus {
+      border-color: var(--input-focus-glow);
+      outline: none;
+      background-color: #292644;
+      box-shadow:
+        0 0 10px var(--input-focus-glow),
+        inset 0 0 15px #3a3261;
+      color: #e3ddf8;
+    }
+
+    .form-select {
+      padding-right: 2.8rem;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%237a64b9' viewBox='0 0 16 16'%3e%3cpath d='M4.646 6.646a.5.5 0 0 1 .708 0L8 9.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1.3rem 1.3rem;
+      transition: background-color 0.3s ease;
+    }
+    .form-select:hover {
+      background-color: #292644;
+    }
+
+    input[type="range"] {
+      height: 0.85rem;
+      cursor: pointer;
+      border-radius: 0.3rem;
+      -webkit-appearance: none;
+      appearance: none;
+      outline: none;
+      background: linear-gradient(90deg, #6c4b9e, #8f70c9);
+      box-shadow: inset 0 0 10px #5a3e89;
+      margin-top: 0.3rem;
+      position: relative;
+      z-index: 2;
+      transition: background 0.3s ease;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 0.85rem;
+      border-radius: 0.3rem;
+      background: linear-gradient(90deg, #6c4b9e, #8f70c9);
+    }
+
+    input[type="range"]::-moz-range-track {
+      height: 0.85rem;
+      border-radius: 0.3rem;
+      background: linear-gradient(90deg, #6c4b9e, #8f70c9);
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 22px;
+      height: 22px;
+      background: var(--accent-purple);
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid var(--glow-purple);
+      box-shadow:
+        0 0 8px var(--shadow-glow),
+        0 0 15px var(--shadow-glow);
+      margin-top: -8px;
+      position: relative;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+      background-color: var(--glow-purple);
+      box-shadow:
+        0 0 14px var(--shadow-glow),
+        0 0 22px var(--shadow-glow);
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      background: var(--accent-purple);
+      border-radius: 50%;
+      border: 2px solid var(--glow-purple);
+      cursor: pointer;
+      box-shadow:
+        0 0 8px var(--shadow-glow),
+        0 0 15px var(--shadow-glow);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input[type="range"]::-moz-range-thumb:hover {
+      background-color: var(--glow-purple);
+      box-shadow:
+        0 0 14px var(--shadow-glow),
+        0 0 22px var(--shadow-glow);
+    }
+
+    /* Checkboxes and Switches */
+    .form-check-input {
+      width: 1.4em;
+      height: 1.4em;
+      border-radius: 0.3rem;
+      border: 2px solid var(--input-border);
+      background-color: #1a182b;
+      box-shadow:
+        inset 0 0 8px #241f3a;
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-check-input:checked {
+      background-color: var(--accent-purple);
+      border-color: var(--accent-purple);
+      box-shadow:
+        0 0 12px var(--shadow-glow);
+    }
+
+    .form-switch .form-check-input {
+      width: 2.5em;
+      height: 1.4em;
+      border-radius: 1.4rem;
+      position: relative;
+    }
+    .form-switch .form-check-input::before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 1.2em;
+      height: 1.2em;
+      background: #121018;
+      border-radius: 0.3rem;
+      transition: transform 0.35s ease, background-color 0.35s ease;
+      box-shadow: inset 0 0 10px #241f3a;
+    }
+    .form-switch .form-check-input:checked::before {
+      transform: translateX(1.3em);
+      background: var(--glow-purple);
+      box-shadow:
+        0 0 15px var(--shadow-glow);
+    }
+
+    /* Radio buttons */
+    .form-check-input[type="radio"] {
+      border-radius: 50%;
+    }
+
+    /* Button */
+    button.btn-primary {
+      width: 100%;
+      padding: 0.9rem 0;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ece8ff;
+      background: var(--button-bg);
+      border: none;
+      border-radius: 0.6rem;
+      box-shadow:
+        0 0 18px var(--shadow-glow),
+        0 0 35px var(--shadow-glow);
+      cursor: pointer;
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      user-select: none;
+      font-family: var(--font-family);
+      text-shadow: 0 0 10px #9a8fd0cc;
+    }
+    button.btn-primary:hover,
+    button.btn-primary:focus {
+      background: var(--button-hover-bg);
+      box-shadow:
+        0 0 25px var(--shadow-glow),
+        0 0 50px var(--shadow-glow);
+      outline: none;
+    }
+    button.btn-primary i {
+      font-size: 1.6rem;
+      color: #e6e0ff;
+      filter: drop-shadow(0 0 8px var(--shadow-glow));
+    }
+
+    /* Margins */
+    .mb-3 {
+      margin-bottom: 1.25rem;
+    }
+    .mb-4 {
+      margin-bottom: 1.75rem;
+    }
+    .fw-bold {
+      font-weight: 600;
+    }
+    .ms-2 {
+      margin-left: 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 576px) {
+      main.container {
+        padding: 2rem 1.5rem;
+        max-width: 100%;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container" role="main" aria-label="GoldRush Gym Signup Eclipse Shadow Form">
+    <header>
+      <h1>
+        <i class="bi bi-moon-stars-fill"></i> GoldRush Gym Signup
+      </h1>
+      <p>Sophisticated Mystery and Elegance</p>
+    </header>
+
+    <form action="http://formit-env.eba-tjyqmsyi.us-west-2.elasticbeanstalk.com/invokeSubmit" method="POST" novalidate>
+      <input name="formid" type="hidden" value="3d2d18f2-ddad-40ee-bf0f-ca2f8d8b320b" />
+      <input name="formrev" type="hidden" value="1" />
+
+      <div class="mb-4">
+        <label class="form-label" for="idFirst">
+          <i class="bi bi-person"></i> First name
+        </label>
+        <input
+          class="form-control"
+          id="idFirst"
+          name="idFirst"
+          type="text"
+          value=""
+          placeholder="Enter first name"
+          autocomplete="given-name"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label" for="idMiddle">
+          <i class="bi bi-person"></i> Middle name
+        </label>
+        <input
+          class="form-control"
+          id="idMiddle"
+          name="idMiddle"
+          type="text"
+          value=""
+          placeholder="Enter middle name"
+          autocomplete="additional-name"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label" for="idLast">
+          <i class="bi bi-person"></i> Last name
+        </label>
+        <input
+          class="form-control"
+          id="idLast"
+          name="idLast"
+          type="text"
+          value=""
+          placeholder="Enter last name"
+          autocomplete="family-name"
+        />
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label" for="idProv">
+          <i class="bi bi-geo-alt"></i> Province
+        </label>
+        <input
+          class="form-control"
+          id="idProv"
+          name="idProv"
+          type="text"
+          value=""
+          placeholder="Enter province/state"
+          autocomplete="address-level1"
+        />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="idMembership">Membership Package</label>
+        <select class="form-select" id="idMembership" name="idMembership" autocomplete="off">
+          <option value="Basic">Basic</option>
+          <option value="Bronze">Bronze</option>
+          <option value="Silver">Silver</option>
+          <option value="Gold">Gold</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="odFitness">Fitness Level</label>
+        <input
+          class="form-range"
+          id="odFitness"
+          max="10"
+          min="1"
+          name="odFitness"
+          oninput="document.getElementById('odFitness_value').textContent = this.value"
+          step="1"
+          type="range"
+          value="5"
+          aria-valuemin="1"
+          aria-valuemax="10"
+          aria-valuenow="5"
+          aria-label="Fitness Level"
+        />
+        <span class="ms-2 fw-bold" id="odFitness_value">5</span>
+      </div>
+
+      <div class="form-check form-switch mb-3">
+        <input
+          class="form-check-input"
+          id="idSubscribe"
+          name="idSubscribe"
+          role="switch"
+          type="checkbox"
+          value="Yes"
+        />
+        <label class="form-check-label" for="idSubscribe">Subscribe to newsletter</label>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold">Select your Gender</label>
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            id="idGen_opt0"
+            name="idGen"
+            type="radio"
+            value="Male"
+          />
+          <label class="form-check-label" for="idGen_opt0">Male</label>
+        </div>
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            id="idGen_opt1"
+            name="idGen"
+            type="radio"
+            value="Female"
+          />
+          <label class="form-check-label" for="idGen_opt1">Female</label>
+        </div>
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            id="idGen_opt2"
+            name="idGen"
+            type="radio"
+            value="Rather not say"
+          />
+          <label class="form-check-label" for="idGen_opt2">Rather not say</label>
+        </div>
+      </div>
+
+      <div class="form-check form-switch mb-3">
+        <input
+          class="form-check-input"
+          id="idAgree"
+          name="idAgree"
+          role="switch"
+          type="checkbox"
+          value="Checked"
+        />
+        <label class="form-check-label" for="idAgree">Agree to terms</label>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label" for="idMoreDetails">
+          <i class="bi bi-clipboard"></i> Provide more details
+        </label>
+        <textarea
+          class="form-control"
+          id="idMoreDetails"
+          name="idMoreDetails"
+          rows="4"
+          placeholder="Tell us more about your fitness goals..."
+          required
+        ></textarea>
+      </div>
+
+ <button class="btn btn-primary w-100" type="submit" disabled>
+  <i class="bi bi-check-circle me-2"></i>Sign Up
+</button>
+    </form>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
+

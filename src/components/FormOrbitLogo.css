@@ -1,0 +1,54 @@
+.logo-container {
+  position: relative;
+  width: 200px; /* 40% of original 350px */
+  height: auto;
+  display: inline-block;
+}
+
+.logo-image {
+  width: 100%; /* fills container */
+  height: auto;
+  display: block;
+  border-radius: 50%;
+}
+
+.logo-particle-wrapper {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.light-streak {
+  position: absolute;
+  top: 0;
+  left: -30%;            /* start slightly off left */
+  width: 20%;            /* thinner streak */
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: streak 2s ease-in-out forwards; /* run once, keep last frame */
+  pointer-events: none;
+  opacity: 1;            /* start visible */
+}
+
+@keyframes streak {
+  0% {
+    left: -30%;
+    opacity: 1;
+  }
+  80% {
+    left: 110%;
+    opacity: 1;
+  }
+  100% {
+    left: 110%;
+    opacity: 0;           /* fade out at end */
+  }
+}

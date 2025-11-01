@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GoldRush Gym Signup — Aurora Pulse Style</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <style>
+    /* Aurora Pulse Palette */
+    :root {
+      --bg-gradient-1: #a2d5c6;
+      --bg-gradient-2: #8cd0d1;
+      --bg-gradient-3: #9c9ddf;
+      --bg-gradient-4: #b9a0d9;
+      --input-bg: rgba(255 255 255 / 0.3);
+      --input-border: #c9f0e1;
+      --input-focus-border: #a5d8f0;
+      --text-primary: #ffffffdd;
+      --placeholder-color: #d3e4f0cc;
+      --button-bg: linear-gradient(135deg, #94d7bf, #b3c7e6);
+      --button-hover-bg: linear-gradient(135deg, #b3c7e6, #94d7bf);
+      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Background with shifting Aurora-style gradient */
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(45deg, var(--bg-gradient-1), var(--bg-gradient-2), var(--bg-gradient-3), var(--bg-gradient-4));
+      background-size: 800% 800%;
+      animation: auroraShift 20s ease-in-out infinite;
+      font-family: var(--font-family);
+      color: var(--text-primary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 3rem 1rem;
+      backdrop-filter: saturate(150%) blur(12px);
+    }
+
+    @keyframes auroraShift {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    main.container {
+      max-width: 600px;
+      background-color: rgba(15 30 40 / 0.5);
+      border-radius: 1rem;
+      padding: 3rem 2.5rem;
+      box-shadow:
+        0 0 30px rgba(156, 157, 223, 0.7);
+      border: 1.5px solid var(--input-border);
+      backdrop-filter: saturate(180%) blur(8px);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 2.8rem;
+      letter-spacing: 1.2px;
+      margin-bottom: 0.25rem;
+      color: #d4e9f7cc;
+      text-shadow: 0 0 6px #9fa8daaa;
+    }
+    header p {
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: #c5e2f7aa;
+      font-style: italic;
+      letter-spacing: 0.8px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+      color: #b9c8e0cc;
+      letter-spacing: 0.03em;
+      font-size: 1rem;
+    }
+
+    label i {
+      color: #a9cfc7cc;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+
+    .form-control,
+    .form-select,
+    textarea.form-control,
+    input[type="range"] {
+      background-color: var(--input-bg);
+      border: 1.8px solid var(--input-border);
+      border-radius: 0.6rem;
+      color: var(--text-primary);
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 0.65rem 1rem;
+      transition: border-color 0.4s ease, background-color 0.4s ease;
+      box-shadow:
+        inset 0 0 15px rgba(156, 157, 223, 0.4);
+    }
+
+    .form-control::placeholder {
+      color: var(--placeholder-color);
+      font-style: italic;
+    }
+
+    .form-control:focus,
+    .form-select:focus,
+    textarea.form-control:focus,
+    input[type="range"]:focus {
+      border-color: var(--input-focus-border);
+      outline: none;
+      background-color: rgba(255 255 255 / 0.5);
+      box-shadow:
+        0 0 20px var(--input-focus-border);
+      color: #2b3e50;
+      font-weight: 700;
+    }
+
+    .form-select {
+      padding-right: 2.5rem;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23a5d8f0' viewBox='0 0 16 16'%3e%3cpath d='M4.646 6.646a.5.5 0 0 1 .708 0L8 9.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1.2rem 1.2rem;
+    }
+
+    input[type="range"] {
+      height: 0.7rem;
+      cursor: pointer;
+      border-radius: 1rem;
+      -webkit-appearance: none;
+      appearance: none;
+      outline: none;
+      background: linear-gradient(90deg, #9cbdd9, #a6dec9);
+      box-shadow: inset 0 0 12px rgba(156, 157, 223, 0.6);
+      position: relative;
+      z-index: 2;
+      margin-top: 0.3rem;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 0.7rem;
+      border-radius: 1rem;
+      background: linear-gradient(90deg, #9cbdd9, #a6dec9);
+    }
+
+    input[type="range"]::-moz-range-track {
+      height: 0.7rem;
+      border-radius: 1rem;
+      background: linear-gradient(90deg, #9cbdd9, #a6dec9);
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #a3c4bf;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid rgba(255 255 255 / 0.3);
+      box-shadow:
+        0 0 12px #b3c7e6aa;
+      margin-top: -7px;
+      position: relative;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+      background-color: #b9a0d9;
+      box-shadow:
+        0 0 18px #b9a0d9aa;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      background: #a3c4bf;
+      border-radius: 50%;
+      border: 2px solid rgba(255 255 255 / 0.3);
+      cursor: pointer;
+      box-shadow:
+        0 0 12px #b3c7e6aa;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="range"]::-moz-range-thumb:hover {
+      background-color: #b9a0d9;
+      box-shadow:
+        0 0 18px #b9a0d9aa;
+    }
+
+    /* Checkboxes and Switches */
+    .form-check-input {
+      width: 1.3em;
+      height: 1.3em;
+      border-radius: 0.25rem;
+      border: 1.8px solid #c9e2dc;
+      background-color: var(--input-bg);
+      box-shadow: inset 0 0 6px rgba(255 255 255 / 0.15);
+      cursor: pointer;
+      position: relative;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .form-check-input:checked {
+      background-color: #a3c4bf;
+      border-color: #a3c4bf;
+      box-shadow:
+        0 0 12px #a3c4bfaa;
+    }
+
+    .form-switch .form-check-input {
+      width: 2.4em;
+      height: 1.3em;
+      border-radius: 1.3rem;
+      position: relative;
+    }
+    .form-switch .form-check-input::before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 1.1em;
+      height: 1.1em;
+      background: var(--input-bg);
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+      box-shadow: inset 0 0 8px rgba(255 255 255 / 0.2);
+    }
+    .form-switch .form-check-input:checked::before {
+      transform: translateX(1.2em);
+      background: #a3c4bf;
+      box-shadow: 0 0 15px #a3c4bfaa;
+    }
+
+    /* Radio buttons */
+    .form-check-input[type="radio"] {
+      border-radius: 50%;
+    }
+
+    button.btn-primary {
+      width: 100%;
+      padding: 0.85rem 0;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      background: var(--button-bg);
+      border: none;
+      border-radius: 1rem;
+      box-shadow: 0 6px 25px rgba(156, 157, 223, 0.8);
+      cursor: pointer;
+      transition: background 0.5s ease, box-shadow 0.5s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.6rem;
+      text-shadow: 0 0 4px rgba(20, 40, 70, 0.4);
+    }
+    button.btn-primary:hover,
+    button.btn-primary:focus {
+      background: var(--button-hover-bg);
+      box-shadow: 0 12px 40px rgba(179, 199, 230, 0.9);
+      outline: none;
+    }
+    button.btn-primary i {
+      font-size: 1.4rem;
+      color: var(--text-primary);
+      filter: drop-shadow(0 0 3px #9fa8dacc);
+    }
+
+    /* Spacing helpers */
+    .mb-3 {
+      margin-bottom: 1.25rem;
+    }
+    .mb-4 {
+      margin-bottom: 1.75rem;
+    }
+    .fw-bold {
+      font-weight: 700;
+    }
+    .ms-2 {
+      margin-left: 0.5rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 576px) {
+      main.container {
+        padding: 2rem 1.5rem;
+        max-width: 100%;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container" role="main" aria-label="GoldRush Gym Signup Aurora Pulse Form">
+    <header>
+      <h1>
+        <i class="bi bi-stars"></i> GoldRush Gym Signup
+      </h1>
+      <p>Join today and unlock your fitness potential!</p>
+    </header>
+
+    <form action="http://formit-env.eba-tjyqmsyi.us-west-2.elasticbeanstalk.com/invokeSubmit" method="POST" novalidate>
+      <input name="formid" type="hidden" value="3d2d18f2-ddad-40ee-bf0f-ca2f8d8b320b" />
+      <input name="formrev" type="hidden" value="1" />
+
+      <div class="mb-4">
+        <label class="form-label" for="idFirst">
+          <i class="bi bi-person"></i> First name
+        </label>
+        <input class="form-control" id="idFirst" name="idFirst" type="text" value="" placeholder="Enter first name" />
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label" for="idMiddle">
+          <i class="bi bi-person"></i> Middle name
+        </label>
+        <input class="form-control" id="idMiddle" name="idMiddle" type="text" value="" placeholder="Enter middle name" />
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label" for="idLast">
+          <i class="bi bi-person"></i> Last name
+        </label>
+        <input class="form-control" id="idLast" name="idLast" type="text" value="" placeholder="Enter last name" />
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label" for="idProv">
+          <i class="bi bi-geo-alt"></i> Province
+        </label>
+        <input class="form-control" id="idProv" name="idProv" type="text" value="" placeholder="Enter province/state" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="idMembership">Membership Package</label>
+        <select class="form-select" id="idMembership" name="idMembership">
+          <option value="Basic">Basic</option>
+          <option value="Bronze">Bronze</option>
+          <option value="Silver">Silver</option>
+          <option value="Gold">Gold</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="odFitness">Fitness Level</label>
+        <input
+          class="form-range"
+          id="odFitness"
+          max="10"
+          min="1"
+          name="odFitness"
+          oninput="document.getElementById('odFitness_value').textContent = this.value"
+          step="1"
+          type="range"
+          value="5"
+        />
+        <span class="ms-2 fw-bold" id="odFitness_value">5</span>
+      </div>
+
+      <div class="form-check form-switch mb-3">
+        <input
+          class="form-check-input"
+          id="idSubscribe"
+          name="idSubscribe"
+          role="switch"
+          type="checkbox"
+          value="Yes"
+        />
+        <label class="form-check-label" for="idSubscribe">Subscribe to newsletter</label>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold">Select your Gender</label>
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            id="idGen_opt0"
+            name="idGen"
+            type="radio"
+            value="Male"
+          />
+          <label class="form-check-label" for="idGen_opt0">Male</label>
+        </div>
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            id="idGen_opt1"
+            name="idGen"
+            type="radio"
+            value="Female"
+          />
+          <label class="form-check-label" for="idGen_opt1">Female</label>
+        </div>
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            id="idGen_opt2"
+            name="idGen"
+            type="radio"
+            value="Rather not say"
+          />
+          <label class="form-check-label" for="idGen_opt2">Rather not say</label>
+        </div>
+      </div>
+
+      <div class="form-check form-switch mb-3">
+        <input
+          class="form-check-input"
+          id="idAgree"
+          name="idAgree"
+          role="switch"
+          type="checkbox"
+          value="Checked"
+        />
+        <label class="form-check-label" for="idAgree">Agree to terms</label>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label" for="idMoreDetails">
+          <i class="bi bi-clipboard"></i> Provide more details
+        </label>
+        <textarea
+          class="form-control"
+          id="idMoreDetails"
+          name="idMoreDetails"
+          required
+          rows="4"
+          placeholder="Tell us more about your fitness goals..."
+        ></textarea>
+      </div>
+
+      <button class="btn btn-primary w-100" type="submit" disabled>
+  <i class="bi bi-check-circle me-2"></i>Sign Up
+</button>
+    </form>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
+

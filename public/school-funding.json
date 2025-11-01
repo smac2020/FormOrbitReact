@@ -1,0 +1,119 @@
+{
+  "formId": "school-funding-2025",
+  "summary": {
+    "totalSubmissions": 320,
+    "avgFundingRequested": 125000,
+    "approvedSubmissions": 210,
+    "rejectedSubmissions": 110
+  },
+  "distributions": {
+    "schoolType": { 
+      "Elementary": 120, 
+      "Middle": 100, 
+      "High": 100 
+    },
+    "province": { 
+      "ON": 120, 
+      "QC": 80, 
+      "BC": 60, 
+      "AB": 40, 
+      "MB": 20 
+    },
+    "fundingCategory": { 
+      "Infrastructure": 100, 
+      "Technology": 80, 
+      "Extracurricular": 90, 
+      "Other": 50 
+    },
+    "requestAmountHistogram": { 
+      "0-50k": 50, 
+      "50k-100k": 120, 
+      "100k-150k": 90, 
+      "150k-200k": 60 
+    },
+    "staffSupport": { 
+      "Yes": 250, 
+      "No": 70 
+    }
+  },
+  "predictions": {
+    "fundingNextMonth": {
+      "count": 1350000,
+      "increasePercent": 8,
+      "modelDetails": {
+        "algorithm": "Random Forest",
+        "featuresUsed": [
+          "schoolType",
+          "province",
+          "fundingCategory",
+          "requestAmountHistogram",
+          "staffSupport",
+          "historicalFundingData",
+          "economicIndicators"
+        ],
+        "accuracy": 0.88,
+        "precision": 0.85,
+        "recall": 0.83
+      },
+      "explanation": "The prediction for funding next month is based on a Random Forest algorithm, which analyzed key features such as school type, province, funding category, request amount histogram, staff support, historical funding data, and economic indicators. The model achieved an accuracy of 88%, with a precision of 85% and a recall of 83%."
+    },
+    "approvalsNextMonth": {
+      "count": 80,
+      "increasePercent": 12,
+      "modelDetails": {
+        "algorithm": "Logistic Regression",
+        "featuresUsed": [
+          "schoolType",
+          "province",
+          "fundingCategory",
+          "requestAmountHistogram",
+          "staffSupport",
+          "pastApprovalRates",
+          "submissionQualityScore"
+        ],
+        "accuracy": 0.86,
+        "precision": 0.84,
+        "recall": 0.82
+      },
+      "explanation": "The prediction for approvals next month is based on a Logistic Regression algorithm, which analyzed key features such as school type, province, funding category, request amount histogram, staff support, past approval rates, and submission quality score. The model achieved an accuracy of 86%, with a precision of 84% and a recall of 82%."
+    },
+    "rejectionsNextMonth": {
+      "count": 30,
+      "increasePercent": 5,
+      "modelDetails": {
+        "algorithm": "Gradient Boosting",
+        "featuresUsed": [
+          "schoolType",
+          "province",
+          "fundingCategory",
+          "requestAmountHistogram",
+          "staffSupport",
+          "pastRejectionRates",
+          "submissionQualityScore"
+        ],
+        "accuracy": 0.84,
+        "precision": 0.80,
+        "recall": 0.78
+      },
+      "explanation": "The prediction for rejections next month is based on a Gradient Boosting algorithm, which analyzed key features such as school type, province, funding category, request amount histogram, staff support, past rejection rates, and submission quality score. The model achieved an accuracy of 84%, with a precision of 80% and a recall of 78%."
+    },
+    "repeatPurchasesNextMonth": {
+      "count": 130,
+      "percentChange": 15,
+      "modelDetails": {
+        "algorithm": "Random Forest",
+        "featuresUsed": [
+          "satisfaction",
+          "staffHelpful",
+          "expectationsMet",
+          "recommendLikelihood",
+          "purchasedProduct"
+        ],
+        "accuracy": 0.85,
+        "precision": 0.82,
+        "recall": 0.80
+      },
+      "explanation": "The prediction for repeat purchases next month is based on a Random Forest algorithm, which analyzed key features such as customer satisfaction, staff helpfulness, whether expectations were met, likelihood to recommend, and the type of product purchased. The model achieved an accuracy of 85%, with a precision of 82% and a recall of 80%."
+    }
+  }
+}

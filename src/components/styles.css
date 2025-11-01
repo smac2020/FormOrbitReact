@@ -1,0 +1,872 @@
+/* === Reset and Base === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1e1e2f;
+  color: #ecf0f1;
+  min-height: 100vh;
+  overflow: auto;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  user-select: auto;
+}
+
+/* === Designer Buttons: Dark/NEON Theme === */
+.designer-button {
+  background-color: #0a1a24;
+  color: var(--neon-blue);
+  border: 2px solid var(--neon-blue);
+  padding: 12px 22px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 3px rgba(0, 240, 255, 0.21);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.designer-button:hover {
+  background-color: #001f33;
+  box-shadow: 0 0 4px rgba(0, 240, 255, 0.35);
+  transform: scale(1.02);
+}
+
+.designer-button:focus {
+  outline: none;
+  box-shadow: 0 0 3px rgba(0, 240, 255, 0.28);
+}
+
+/* === Variables === */
+:root {
+  --neon-blue: #00f0ff;
+  --deep-blue: #0d1b2a;
+  --soft-blue-bg: #1b263b;
+  --neon-glow: 0 0 4px rgba(0, 240, 255, 0.35);
+}
+
+/* Sidebar remains unchanged */
+
+/* === Modal === */
+.modal-content {
+  box-shadow: 0 0 4px rgba(0, 240, 255, 0.35);
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  box-shadow: inset 0 0 3px rgba(0, 240, 255, 0.14);
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus,
+.modal-content select:focus {
+  box-shadow: 0 0 4px var(--neon-blue);
+}
+
+button,
+.modal-content button,
+.loginmodal-content button {
+  box-shadow: var(--neon-glow);
+}
+
+button:hover,
+.modal-content button:hover,
+.loginmodal-content button:hover {
+  box-shadow: 0 0 7px var(--neon-blue);
+}
+
+button:focus,
+.menu li:focus {
+  box-shadow: 0 0 4px var(--neon-blue);
+}
+
+.card {
+  box-shadow: 0 0 3px rgba(0, 240, 255, 0.14);
+}
+
+.card:hover,
+.element-card:hover {
+  box-shadow:
+    0 0 7px var(--neon-blue),
+    0 0 14px var(--neon-blue),
+    0 0 21px rgba(0, 240, 255, 0.21);
+}
+
+.card:active {
+  box-shadow: 0 0 4px rgba(0, 240, 255, 0.14);
+}
+
+.icon-box {
+  box-shadow: 0 0 4px rgba(0, 240, 255, 0.21);
+}
+
+.icon-box:hover {
+  box-shadow: 0 0 7px var(--neon-blue);
+}
+
+/* === Designer Buttons: Dark/NEON Theme === */
+.designer-button {
+  background-color: #0a1a24;
+  color: var(--neon-blue);
+  border: 2px solid var(--neon-blue);
+  padding: 12px 22px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 240, 255, 0.3);
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+}
+
+.designer-button:hover {
+  background-color: #001f33;
+  box-shadow: 0 0 6px rgba(0, 240, 255, 0.5);
+  transform: scale(1.02);
+}
+
+.designer-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 240, 255, 0.4);
+}
+
+
+/* === Variables === */
+:root {
+  --neon-blue: #00f0ff;
+  --deep-blue: #0d1b2a;
+  --soft-blue-bg: #1b263b;
+  --neon-glow: 0 0 6px rgba(0, 240, 255, 0.5);
+}
+
+.sidebar {
+  height: 100vh;          /* full viewport height */
+  overflow-y: auto;       /* vertical scroll if content overflows */
+  padding-right: 8px;     /* prevent scrollbar overlapping content */
+}
+
+/* === Modal === */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  pointer-events: all;
+}
+
+.modal-inner-wrapper {
+  position: relative;
+  margin: 20px;
+  box-sizing: border-box;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background-color: #101927;
+  color: var(--neon-blue);
+  padding: 48px 40px;
+  border-radius: 16px;
+  width: 600px;
+  max-width: 90vw;
+  max-height: 90vh;
+  font-size: 1.3rem;
+  box-shadow: var(--neon-glow);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+  scrollbar-gutter: stable both-edges;
+  border: 2px solid var(--neon-blue);
+  animation: fade-in-opacity 0.3s ease forwards;
+  outline: none;
+  transform: translateZ(0);
+  user-select: text;
+}
+
+.modal-content:focus {
+  outline: text;
+}
+
+@keyframes fade-in-opacity {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  font-size: 1.15rem;
+  padding: 16px;
+  background-color: #0f1c28;
+  border: 2px solid var(--neon-blue);
+  color: #d7faff;
+  box-shadow: inset 0 0 4px rgba(0, 240, 255, 0.2);
+  border-radius: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus,
+.modal-content select:focus {
+  border-color: var(--neon-blue);
+  background-color: #132030;
+  box-shadow: 0 0 6px var(--neon-blue);
+}
+
+/* === Buttons === */
+button,
+.modal-content button,
+.loginmodal-content button {
+  background-color: var(--soft-blue-bg);
+  color: var(--neon-blue);
+  border: 1px solid var(--neon-blue);
+  box-shadow: var(--neon-glow);
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 10px;
+}
+
+button:hover,
+.modal-content button:hover,
+.loginmodal-content button:hover {
+  background-color: #112031;
+  box-shadow: 0 0 8px var(--neon-blue);
+}
+
+button:focus,
+.menu li:focus {
+  outline: none;
+  box-shadow: 0 0 6px var(--neon-blue);
+}
+
+/* === Modal Header === */
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.modal-header img {
+  height: 60px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.15);
+}
+
+.modal-header h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+/* === Login Modal === */
+.loginmodal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  backdrop-filter: blur(2px);
+}
+
+.loginmodal-content {
+  background: #1e1e2f;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 360px;
+  max-width: 90%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  animation: loginmodal-fadeIn 0.3s ease-out;
+  color: #f1f1f1;
+}
+
+.loginmodal-content h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.loginmodal-content input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  background-color: #2c2c3a;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: #fff;
+  transition: border-color 0.2s;
+}
+
+.loginmodal-content input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.loginmodal-error {
+  color: #ff4d4d;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+@keyframes loginmodal-fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* === Layout === */
+.app-layout {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: #2a2a40;
+  padding: 20px;
+  border-right: 1px solid #444;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.sidebar h2 {
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+  color: #ffffff;
+  border-bottom: 1px solid #444;
+  padding-bottom: 8px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  flex: 1;
+}
+
+.menu li {
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #d0d0f5;
+  transition: background 0.2s ease;
+}
+
+.menu li:hover {
+  background-color: #3a3a55;
+}
+
+.menu li.active {
+  background-color: #001f33;
+  color: var(--neon-blue);
+  font-weight: bold;
+  box-shadow: var(--neon-glow);
+}
+
+.main-content {
+  margin-left: 220px;
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  background-color: #1e1e2f;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.column-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  width: 100%;
+  max-width: 1300px;
+  flex-wrap: wrap;
+  padding: 0 12px;
+}
+
+/* === Columns === */
+.new-order-column,
+.in-progress-column {
+  flex: 1;
+  background: #2b2b3c;
+  padding: 28px 24px 140px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 650px;
+  min-height: 300px;
+  scrollbar-width: thin;
+  scrollbar-color: #6464a8 #2b2b3c;
+}
+
+.new-order-column::-webkit-scrollbar,
+.in-progress-column::-webkit-scrollbar {
+  width: 8px;
+}
+
+.new-order-column::-webkit-scrollbar-thumb,
+.in-progress-column::-webkit-scrollbar-thumb {
+  background-color: #6464a8;
+  border-radius: 4px;
+}
+
+.new-order-column::-webkit-scrollbar-track,
+.in-progress-column::-webkit-scrollbar-track {
+  background-color: #2b2b3c;
+}
+
+.new-order-column h4,
+.in-progress-column h4 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+}
+
+/* === Cards === */
+.card {
+  background: linear-gradient(135deg, #141d2b, #1e2f47);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  color: #e0f7ff;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  cursor: grab;
+  box-shadow: 0 0 4px rgba(0, 240, 255, 0.2);
+  transition: background-color 0.2s ease;
+}
+
+.card:hover {
+  background-color: #1c2b3a;
+  box-shadow: 
+    0 0 10px var(--neon-blue),      /* Brighter outer glow */
+    0 0 20px var(--neon-blue),      /* Wider spread */
+    0 0 30px rgba(0, 240, 255, 0.3); /* Subtle distant glow */
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.element-card:hover {
+  background-color: #1c2b3a;
+  box-shadow:
+    0 0 10px var(--neon-blue),      /* Brighter outer glow */
+    0 0 20px var(--neon-blue),      /* Wider spread */
+    0 0 30px rgba(0, 240, 255, 0.3); /* Subtle distant glow */
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+
+
+.card:active {
+  cursor: grabbing;
+  background: #101f2e;
+  box-shadow: 0 0 6px rgba(0, 240, 255, 0.2);
+}
+
+.card.dragging {
+  opacity: 0.4;
+}
+
+.card_right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #a9b0ff;
+}
+
+.card_right svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: #7681ff;
+  transition: color 0.2s;
+}
+
+.card_right:hover svg {
+  color: #ffffff;
+}
+
+/* === Drop Highlight === */
+.drop-highlight {
+  border: 2px dashed var(--neon-blue);
+  background-color: rgba(0, 240, 255, 0.1);
+  border-radius: 10px;
+  padding: 6px;
+}
+
+/* === Element Cards === */
+.element-card {
+  padding: 12px 18px;     /* ↓ Slightly reduce vertical padding */
+  font-size: 1.05rem;     /* ↓ Slightly reduce text size */
+  min-height: 56px;       /* Optional: set a soft floor for height */
+  background-color: #162a36;
+  color: var(--neon-blue);
+  border: 1px solid var(--neon-blue);
+  margin-bottom: 14px;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.45);
+  cursor: grab;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+
+
+.element-card:active {
+  cursor: grabbing;
+  box-shadow: 0 5px 14px rgba(0,0,0,0.5);
+  background-color: #3a3a6a;
+  height: 48px;   /* Subtle press effect */
+}
+
+
+/* === Icon Boxes === */
+.icon-box {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #007bff;
+  background-color: #0a1a24;
+  color: var(--neon-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 6px rgba(0, 240, 255, 0.3);
+}
+
+.icon-box:hover {
+  background-color: #001a2d;
+  box-shadow: 0 0 8px var(--neon-blue);
+  color: #fff;
+}
+
+.icon-box.selected {
+  border: 2px solid #0d6efd;
+  background-color: #2a2a2a;
+  color: #0d6efd;
+}
+
+/* === Misc === */
+.delete-icon {
+  cursor: pointer;
+  color: red;
+  font-weight: bold;
+  font-size: 28px;
+  padding: 0 10px;
+  user-select: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.delete-icon:hover {
+  color: darkred;
+}
+
+.close {
+  font-size: 32px;
+  cursor: pointer;
+  color: red;
+  margin-left: 8px;
+  user-select: none;
+}
+
+.screen {
+  background-color: #121212;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+iframe {
+  background-color: #121212;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.formorbit-logo {
+  width: 140px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.checkbox-card {
+  position: relative;
+}
+
+/* Hide icons by default */
+.checkbox-card .icon-group {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  display: flex;
+  gap: 10px;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+/* Show icons on card hover */
+.checkbox-card:hover .icon-group {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Smaller icon style for sleek look */
+.icon-button {
+  font-size: 22px;
+  transition: color 0.2s ease;
+  user-select: none;
+}
+
+.icon-button:hover {
+  color: var(--neon-blue);
+}
+
+.delete-icon {
+  color: #8b0000;
+}
+
+.delete-icon:hover {
+  color: #ff4d4d;
+}
+
+.textinput-card {
+  position: relative;
+}
+
+/* Hide icons by default */
+.textinput-card .icon-group {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  display: flex;
+  gap: 10px;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+/* Show icons on card hover */
+.textinput-card:hover .icon-group {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dropdown-card .icon-group {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  display: flex;
+  gap: 10px;
+  margin-left: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Show icons on card hover */
+.dropdown-card:hover .icon-group {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.slider-card {
+  position: relative;
+  user-select: none;
+  cursor: grab;
+  padding: 8px;
+}
+
+/* Icon group hidden by default, show on hover */
+.slider-card .icon-group {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  display: flex;
+  gap: 10px;
+  margin-left: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.slider-card:hover .icon-group {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.toggle-card {
+  position: relative;
+  user-select: none;
+  cursor: grab;
+  padding: 8px;
+}
+
+/* Hide icon group by default, show on hover */
+.toggle-card .icon-group {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  display: flex;
+  gap: 10px;
+  margin-left: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-card:hover .icon-group {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.textarea-card .icon-group {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  display: flex;
+  gap: 10px;
+  margin-left: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.textarea-card:hover .icon-group {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Optional: add a subtle background or border highlight on hover */
+.textarea-card:hover {
+  background-color: rgba(0, 123, 255, 0.05);
+  border-color: #007bff;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  cursor: grab;
+}
+
+.radio-card .icon-group {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  display: flex;
+  gap: 10px;
+  margin-left: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.radio-card:hover .icon-group {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Optional: subtle highlight on hover */
+.radio-card:hover {
+  background-color: rgba(0, 123, 255, 0.05);
+  border-color: #007bff;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  cursor: grab;
+}
+
+
+.icon-button {
+  font-size: 22px;
+  transition: color 0.2s ease;
+  user-select: none;
+}
+
+.icon-button:hover {
+  color: var(--neon-blue);
+}
+
+.delete-icon {
+  color: #f50336;
+  font-weight: bold;
+}
+
+.delete-icon:hover {
+  color: #ff4d4d;
+}
+

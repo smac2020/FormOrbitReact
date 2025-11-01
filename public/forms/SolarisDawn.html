@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GoldRush Gym Signup — Solaris Dawn</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    :root {
+      --sunrise-orange: #ffb347;
+      --sunrise-pink: #ff9a9e;
+      --sunrise-yellow: #fff6b7;
+      --text-dark: #3c2c21;
+      --form-bg: #fffdf8;
+    }
+
+    body {
+      background: linear-gradient(to top right, var(--sunrise-pink), var(--sunrise-orange), var(--sunrise-yellow));
+      color: var(--text-dark);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 2rem;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: var(--form-bg);
+      border-radius: 1rem;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 8px 24px rgba(255, 153, 102, 0.25);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    header h1 {
+      font-weight: 700;
+      color: var(--sunrise-orange);
+      text-shadow: 0 1px 3px rgba(255, 153, 102, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    label {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .form-control,
+    .form-select,
+    .form-range {
+      background: #fffefb;
+      border: 1px solid #ffddc1;
+      border-radius: 0.6rem;
+      padding: 0.6rem 1rem;
+      font-weight: 500;
+    }
+
+    .form-check-input:checked {
+      background-color: var(--sunrise-orange);
+      border-color: var(--sunrise-orange);
+    }
+
+    .form-check-input:focus,
+    .form-control:focus,
+    .form-select:focus,
+    .form-range:focus {
+      border-color: var(--sunrise-pink);
+      box-shadow: 0 0 0 0.2rem rgba(255, 182, 193, 0.5);
+    }
+
+    .form-check-label {
+      margin-left: 0.5rem;
+    }
+
+    button.btn-primary {
+      background: linear-gradient(to right, var(--sunrise-orange), var(--sunrise-pink));
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      padding: 0.75rem;
+      border-radius: 0.6rem;
+      box-shadow: 0 4px 12px rgba(255, 153, 102, 0.5);
+    }
+
+    button.btn-primary:hover {
+      background: linear-gradient(to right, var(--sunrise-pink), var(--sunrise-orange));
+    }
+
+    .form-icon-label i {
+      margin-right: 0.4rem;
+      color: var(--sunrise-orange);
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1><i class="bi bi-sunrise"></i> GoldRush Gym Signup</h1>
+      <p>Join today and unlock your fitness potential!</p>
+    </header>
+
+    <form action="http://formit-env.eba-tjyqmsyi.us-west-2.elasticbeanstalk.com/invokeSubmit" method="POST" novalidate>
+      <input name="formid" type="hidden" value="3d2d18f2-ddad-40ee-bf0f-ca2f8d8b320b" />
+      <input name="formrev" type="hidden" value="1" />
+
+      <div class="mb-4">
+        <label class="form-label form-icon-label" for="idFirst">
+          <i class="bi bi-person"></i> First name
+        </label>
+        <input class="form-control" id="idFirst" name="idFirst" type="text" />
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label form-icon-label" for="idMiddle">
+          <i class="bi bi-person"></i> Middle name
+        </label>
+        <input class="form-control" id="idMiddle" name="idMiddle" type="text" />
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label form-icon-label" for="idLast">
+          <i class="bi bi-person"></i> Last name
+        </label>
+        <input class="form-control" id="idLast" name="idLast" type="text" />
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label form-icon-label" for="idProv">
+          <i class="bi bi-geo-alt"></i> Province
+        </label>
+        <input class="form-control" id="idProv" name="idProv" type="text" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="idMembership">Membership Package</label>
+        <select class="form-select" id="idMembership" name="idMembership">
+          <option value="Basic">Basic</option>
+          <option value="Bronze">Bronze</option>
+          <option value="Silver">Silver</option>
+          <option value="Gold">Gold</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label" for="odFitness">Fitness Level</label>
+        <input class="form-range" id="odFitness" max="10" min="1" name="odFitness" type="range" step="1" value="5" oninput="document.getElementById('odFitness_value').textContent = this.value" />
+        <span class="ms-2 fw-bold" id="odFitness_value">5</span>
+      </div>
+
+      <div class="form-check form-switch mb-3">
+        <input class="form-check-input" id="idSubscribe" name="idSubscribe" type="checkbox" value="Yes" />
+        <label class="form-check-label" for="idSubscribe">Subscribe to newsletter</label>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold">Select your Gender</label>
+        <div class="form-check">
+          <input class="form-check-input" id="idGen_opt0" name="idGen" type="radio" value="Male" />
+          <label class="form-check-label" for="idGen_opt0">Male</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" id="idGen_opt1" name="idGen" type="radio" value="Female" />
+          <label class="form-check-label" for="idGen_opt1">Female</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" id="idGen_opt2" name="idGen" type="radio" value="Rather not say" />
+          <label class="form-check-label" for="idGen_opt2">Rather not say</label>
+        </div>
+      </div>
+
+      <div class="form-check form-switch mb-3">
+        <input class="form-check-input" id="idAgree" name="idAgree" type="checkbox" value="Checked" />
+        <label class="form-check-label" for="idAgree">Agree to terms</label>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label form-icon-label" for="idMoreDetails">
+          <i class="bi bi-clipboard"></i> Provide more details
+        </label>
+        <textarea class="form-control" id="idMoreDetails" name="idMoreDetails" rows="4" required></textarea>
+      </div>
+
+ <button class="btn btn-primary w-100" type="submit" disabled>
+  <i class="bi bi-check-circle me-2"></i>Sign Up
+</button>
+    </form>
+  </main>
+</body>
+</html>
+
+
+
+
+

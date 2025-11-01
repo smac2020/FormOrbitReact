@@ -1,0 +1,156 @@
+{
+  "formId": "customer-survey-2025",
+  "summary": {
+    "totalSubmissions": 500,
+    "avgSatisfaction": 4.2,
+    "avgAge": 36,
+    "recommendPercent": 78
+  },
+  "distributions": {
+    "heardAboutUs": {
+      "Online Ads": 120,
+      "Word of Mouth": 150,
+      "Social Media": 90,
+      "Events/Tradeshows": 80,
+      "Other": 60
+    },
+    "purchasedProduct": {
+      "Product A": 200,
+      "Product B": 150,
+      "Service X": 100,
+      "Service Y": 50
+    },
+    "satisfaction": {
+      "Very Satisfied": 220,
+      "Satisfied": 160,
+      "Neutral": 80,
+      "Unsatisfied": 30,
+      "Very Unsatisfied": 10
+    },
+    "staffHelpful": {
+      "Yes": 420,
+      "No": 80
+    },
+    "expectationsMet": {
+      "Yes": 390,
+      "No": 110
+    },
+    "recommendLikelihood": {
+      "0-3": 40,
+      "4-6": 70,
+      "7-8": 150,
+      "9-10": 240
+    },
+    "websiteRating": {
+      "Excellent": 180,
+      "Good": 200,
+      "Fair": 90,
+      "Poor": 30
+    }
+  },
+  "predictions": {
+    "repeatPurchasesNextMonth": {
+      "count": 130,
+      "percentChange": 15,
+      "modelDetails": {
+        "algorithm": "Random Forest",
+        "featuresUsed": [
+          "satisfaction",
+          "staffHelpful",
+          "expectationsMet",
+          "recommendLikelihood",
+          "purchasedProduct"
+        ],
+        "accuracy": 0.85,
+        "precision": 0.82,
+        "recall": 0.80
+      },
+      "explanation": "The prediction for repeat purchases next month is based on a Random Forest algorithm, which analyzed key features such as customer satisfaction, staff helpfulness, whether expectations were met, likelihood to recommend, and the type of product purchased. The model achieved an accuracy of 85%, with a precision of 82% and a recall of 80%."
+    },
+    "likelyToChurnNextMonth": {
+      "count": 40,
+      "percentChange": -8,
+      "modelDetails": {
+        "algorithm": "Logistic Regression",
+        "featuresUsed": [
+          "satisfaction",
+          "recommendLikelihood",
+          "websiteRating",
+          "heardAboutUs"
+        ],
+        "accuracy": 0.88,
+        "precision": 0.75,
+        "recall": 0.65
+      },
+      "explanation": "The churn prediction model uses Logistic Regression to evaluate features like customer satisfaction, likelihood to recommend, website rating, and how customers heard about the company. The model shows an accuracy of 88%, with a precision of 75% and a recall of 65%."
+    },
+    "newRecommendations": {
+      "count": 200,
+      "percentChange": 10,
+      "modelDetails": {
+        "algorithm": "Gradient Boosting",
+        "featuresUsed": [
+          "recommendLikelihood",
+          "satisfaction",
+          "websiteRating",
+          "purchasedProduct"
+        ],
+        "accuracy": 0.80,
+        "precision": 0.78,
+        "recall": 0.70
+      },
+      "explanation": "The prediction for new recommendations is generated using a Gradient Boosting algorithm. It considers features such as likelihood to recommend, customer satisfaction, website rating, and the type of product purchased. The model's accuracy is 80%, with a precision of 78% and a recall of 70%."
+    }
+  },
+  "segments": {
+    "sentimentAnalysis": {
+      "positive": 320,
+      "neutral": 120,
+      "negative": 60,
+      "overallSentimentScore": 0.72,
+      "details": [
+        {
+          "submissionId": "s1",
+          "sentiment": "positive",
+          "sentimentScore": 0.95,
+          "keyPhrases": ["friendly staff", "easy signup", "great experience"],
+          "entities": ["Product A", "Gym X"]
+        },
+        {
+          "submissionId": "s2",
+          "sentiment": "negative",
+          "sentimentScore": 0.15,
+          "keyPhrases": ["long wait times", "confusing website"],
+          "entities": ["Service Y"]
+        }
+      ]
+    },
+    "topicSegmentation": {
+      "customerExperience": 200,
+      "pricingFeedback": 120,
+      "websiteUX": 80,
+      "serviceRequests": 100
+    },
+    "frequentTerms": {
+      "topWords": [
+        { "word": "friendly", "count": 85 },
+        { "word": "quick", "count": 70 },
+        { "word": "helpful", "count": 65 },
+        { "word": "expensive", "count": 50 },
+        { "word": "easy", "count": 45 }
+      ]
+    },
+    "languageDetection": {
+      "english": 480,
+      "spanish": 15,
+      "french": 5
+    },
+    "keyEntities": [
+      { "entity": "Product A", "type": "Product", "mentions": 200 },
+      { "entity": "Product B", "type": "Product", "mentions": 150 },
+      { "entity": "Service X", "type": "Service", "mentions": 100 },
+      { "entity": "Gym X", "type": "Organization", "mentions": 80 }
+    ]
+  }
+}
+

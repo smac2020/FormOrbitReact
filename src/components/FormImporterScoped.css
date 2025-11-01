@@ -1,0 +1,39 @@
+/* Scope Bootstrap styles to FormImporter only */
+.form-importer-scope .card,
+.form-importer-scope .card-body,
+.form-importer-scope .card-title,
+.form-importer-scope .btn,
+.form-importer-scope .form-control,
+.form-importer-scope .modal,
+.form-importer-scope .modal-content,
+.form-importer-scope .modal-header,
+.form-importer-scope .modal-body,
+.form-importer-scope .modal-footer {
+  all: revert; /* resets styles to browser default */
+  font-family: inherit;
+}
+
+/* Then reapply ONLY what you need from Bootstrap */
+.form-importer-scope .card {
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  padding: 1rem;
+  background-color: #fff;
+}
+
+/* Basic button override to keep consistent */
+.form-importer-scope .btn {
+  background-color: #0d6efd;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.3rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.form-importer-scope .form-control {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

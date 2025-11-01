@@ -1,0 +1,67 @@
+/* FormGallery.css */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #0d0d1f; /* Dark background */
+}
+
+.gallery-card {
+  background: linear-gradient(135deg, #111132, #1a1a40);
+  border: 1px solid #3f3fff;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(63, 63, 255, 0.4);
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #e0e0ff;
+  cursor: pointer;
+}
+
+.gallery-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(123, 104, 238, 0.6);
+}
+
+.gallery-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #9effff; /* Neon blue */
+}
+
+.gallery-description {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.intro-section {
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro-section {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro-section h1 {
+  font-size: 1.8rem; /* smaller */
+  margin-bottom: 0.75rem;
+}
+
+.intro-section p {
+  font-size: 1.35rem;
+  line-height: 1.4;
+  color: #fff;       /* white text */
+  font-weight: 700;  /* bold */
+}
+
+
