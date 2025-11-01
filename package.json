@@ -1,0 +1,65 @@
+{
+  "name": "reactformit",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@aws-sdk/client-polly": "^3.848.0",
+    "@aws-sdk/credential-provider-cognito-identity": "^3.848.0",
+    "@aws-sdk/credential-providers": "^3.848.0",
+    "@cloudscape-design/components": "^3.0.544",
+    "@cloudscape-design/global-styles": "^1.0.23",
+    "@react-pdf-viewer/core": "^3.12.0",
+    "@react-pdf-viewer/default-layout": "^3.12.0",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@tsparticles/all": "^3.8.1",
+    "@tsparticles/engine": "^3.8.1",
+    "@tsparticles/react": "^3.0.0",
+    "@types/react-dnd": "^3.0.2",
+    "bootstrap": "^5.3.6",
+    "bootstrap-icons": "^1.13.1",
+    "framer-motion": "^12.23.0",
+    "lucide-react": "^0.534.0",
+    "pdf-viewer-reactjs": "^2.2.3",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.10.10",
+    "react-dnd": "latest",
+    "react-dnd-html5-backend": "latest",
+    "react-dom": "^18.2.0",
+    "react-modal": "^3.16.1",
+    "react-scripts": "5.0.1",
+    "recharts": "^3.1.0",
+    "tsparticles-engine": "^2.12.0",
+    "tsparticles-plugin-emitters": "^2.12.0",
+    "uuid": "^11.1.0",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  }
+}
