@@ -11,115 +11,138 @@ const FormImporter = ({ setFormJson }) => {
   const [imageUploadStatus, setImageUploadStatus] = useState(null);
 
   const parseHtmlToJson = (html) => {
-    try {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, "text/html");
-      const form = doc.querySelector("form");
-      if (!form) throw new Error("No form element found in HTML.");
+  try {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    const form = doc.querySelector("form");
+    if (!form) throw new Error("No form element found in HTML.");
 
-      const formId =
-        form.querySelector('input[name="formid"]')?.value || crypto.randomUUID();
-      const formName = "Gold Rush";
-      const formStyle = "Dusk";
+    const formId =
+      form.querySelector('input[name="formid"]')?.value || crypto.randomUUID();
+    const formName = "Gold Rush";
+    const formStyle = "Dusk";
 
-      const jsonOutput = [
-        {
-          type: "FormElement",
-          id: formId,
-          formName,
-          formStyle,
-        },
-      ];
-      const processedRadioGroups = new Set();
-      const inputs = form.querySelectorAll("input, select, textarea");
-      inputs.forEach((input) => {
-        const tagName = input.tagName.toLowerCase();
-        const id = input.id || crypto.randomUUID();
-        if (input.type === "hidden") return;
+    const jsonOutput = [
+      {
+        type: "FormElement",
+        id: formId,
+        formName,
+        formStyle,
+      },
+    ];
 
-        const labelText =
-          form.querySelector(`label[for='${id}']`)?.textContent.trim() ||
-          input.name ||
-          tagName;
+    const processedRadioGroups = new Set();
+    const inputs = form.querySelectorAll("input, select, textarea");
 
-        if (tagName === "input") {
-          switch (input.type) {
-            case "text":
-            case "email":
-            case "password":
-              jsonOutput.push({ type: "TextInput", id, text: labelText });
-              break;
-            case "checkbox":
-              jsonOutput.push({
-                type: "Checkbox",
-                id,
-                label: labelText,
-                checkedValue: "Checked",
-                uncheckedValue: "Unchecked",
-              });
-              break;
-            case "range":
-              jsonOutput.push({
-                type: "Slider",
-                id,
-                label: labelText,
-                min: input.min ? Number(input.min) : 0,
-                max: input.max ? Number(input.max) : 10,
-                step: input.step ? Number(input.step) : 1,
-                defaultValue: input.defaultValue ? Number(input.defaultValue) : 5,
-              });
-              break;
-            case "radio":
-              const groupName = input.name;
-              if (processedRadioGroups.has(groupName)) break;
-              const groupInputs = form.querySelectorAll(
-                `input[type="radio"][name="${groupName}"]`
-              );
-              const options = Array.from(groupInputs).map(
-                (radio) => radio.value || radio.id
-              );
-              const labelElement =
-                form.querySelector(`label[for='${groupInputs[0].id}']`) ||
-                groupInputs[0].closest("label") ||
-                groupInputs[0].previousSibling;
-              const groupLabel =
-                labelElement?.textContent.trim() || `Select your ${groupName}`;
-              jsonOutput.push({
-                type: "Radio",
-                id: groupInputs[0].id || crypto.randomUUID(),
-                label: groupLabel,
-                options,
-              });
-              processedRadioGroups.add(groupName);
-              break;
-            default:
-              break;
-          }
-        } else if (tagName === "select") {
-          const options = Array.from(input.querySelectorAll("option")).map(
-            (opt) => opt.textContent.trim()
-          );
-          jsonOutput.push({
-            type: "DropDown",
-            id,
-            label: labelText,
-            options,
-          });
-        } else if (tagName === "textarea") {
-          jsonOutput.push({
-            type: "TextInput",
-            id,
-            text: labelText,
-          });
+    inputs.forEach((input) => {
+      const tagName = input.tagName.toLowerCase();
+      if (input.type === "hidden") return;
+
+      // === New label + id detection logic ===
+      let labelText = "";
+      let id = input.id;
+
+      // Case 1: label has "for" attribute
+      if (id) {
+        const labelFor = form.querySelector(`label[for='${id}']`);
+        if (labelFor) labelText = labelFor.textContent.trim();
+      }
+
+      // Case 2: label is directly before input
+      if (!labelText) {
+        const prev = input.previousElementSibling;
+        if (prev && prev.tagName.toLowerCase() === "label") {
+          labelText = prev.textContent.trim();
         }
-      });
+      }
 
-      return jsonOutput;
-    } catch (e) {
-      setError(e.message);
-      return null;
-    }
-  };
+      // Case 3: fallback to input name or tag type
+      if (!labelText) labelText = input.name || tagName;
+
+      // === Derive id if missing ===
+      if (!id) {
+        id = labelText.replace(/\s+/g, ""); // remove spaces from label
+      }
+
+      // === Handle different input types ===
+      if (tagName === "input") {
+        switch (input.type) {
+          case "text":
+          case "email":
+          case "password":
+            jsonOutput.push({ type: "TextInput", id, label: labelText });
+            break;
+          case "checkbox":
+            jsonOutput.push({
+              type: "Checkbox",
+              id,
+              label: labelText,
+              checkedValue: "Checked",
+              uncheckedValue: "Unchecked",
+            });
+            break;
+          case "range":
+            jsonOutput.push({
+              type: "Slider",
+              id,
+              label: labelText,
+              min: input.min ? Number(input.min) : 0,
+              max: input.max ? Number(input.max) : 10,
+              step: input.step ? Number(input.step) : 1,
+              defaultValue: input.defaultValue ? Number(input.defaultValue) : 5,
+            });
+            break;
+          case "radio":
+            const groupName = input.name;
+            if (processedRadioGroups.has(groupName)) break;
+            const groupInputs = form.querySelectorAll(
+              `input[type="radio"][name="${groupName}"]`
+            );
+            const options = Array.from(groupInputs).map(
+              (radio) => radio.value || radio.id
+            );
+            const labelElement =
+              form.querySelector(`label[for='${groupInputs[0].id}']`) ||
+              groupInputs[0].closest("label") ||
+              groupInputs[0].previousSibling;
+            const groupLabel =
+              labelElement?.textContent.trim() || `Select your ${groupName}`;
+            jsonOutput.push({
+              type: "Radio",
+              id: groupInputs[0].id || crypto.randomUUID(),
+              label: groupLabel,
+              options,
+            });
+            processedRadioGroups.add(groupName);
+            break;
+          default:
+            break;
+        }
+      } else if (tagName === "select") {
+        const options = Array.from(input.querySelectorAll("option")).map(
+          (opt) => opt.textContent.trim()
+        );
+        jsonOutput.push({
+          type: "DropDown",
+          id,
+          label: labelText,
+          options,
+        });
+      } else if (tagName === "textarea") {
+        jsonOutput.push({
+          type: "TextInput",
+          id,
+          text: labelText,
+        });
+      }
+    });
+
+    return jsonOutput;
+  } catch (e) {
+    setError(e.message);
+    return null;
+  }
+};
 
   const handleImport = () => {
     setError(null);
@@ -177,7 +200,7 @@ const FormImporter = ({ setFormJson }) => {
     try {
       const formData = new FormData();
       formData.append("file", imageFile);
-      const response = await fetch("http://localhost:8080/api/formorbit/image", {
+      const response = await fetch("https://localhost:8443/api/formorbit/image", {
         method: "POST",
         body: formData,
       });
